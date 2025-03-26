@@ -3,16 +3,13 @@ package org.example;
 import com.microsoft.playwright.*;
 
 import java.awt.*;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+
 
 public class PlaywrightFactory {
     Playwright playwright;
     Browser browser;
     BrowserContext browserContext;
     Page page;
-    Properties prop;
 
     public Page initBrowser(String browserName){
         System.out.println("Initializing Browser: "+browserName);

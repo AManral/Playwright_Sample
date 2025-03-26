@@ -2,6 +2,7 @@ package oe.pages;
 
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.SelectOption;
 
 public class HomePage {
 
@@ -10,9 +11,10 @@ public class HomePage {
     // String Locators - Page Object Repository
     private String pageHeader = "//h1[contains(text(),'Currency Converter')]";
     private String inputAmount = "//input[@data-testid='amount']";
-    private String inputFromCurrency = "//select[name='fromCurrency']";
-    private String inputToCurrency = "//select[name='toCurrency']";
+    private String inputFromCurrency = "//select[@name='fromCurrency']";
+    private String inputToCurrency = "//select[@name='toCurrency']";
     private String covertButton = "//button";
+    private String result = "//div[@class='result']";
 
 
     //Initialize page using constructor
@@ -26,13 +28,13 @@ public class HomePage {
     }
 
     public void setInputAmount(String amount) {
-        page.click(inputAmount);
+//        page.click(inputAmount);
         page.fill(inputAmount,amount);
     }
 
     public void setInputFromCurrency(String fromCurrency) {
         page.click(inputToCurrency);
-        page.selectOption(inputFromCurrency,fromCurrency);
+        page.selectOption(inputFromCurrency,new SelectOption().setValue(fromCurrency));
         //page.locator(inputFromCurrency).selectOption(fromCurrency);
     }
 
